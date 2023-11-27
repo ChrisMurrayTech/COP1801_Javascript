@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Loop and Array Example</title>
+</head>
+<body>
+    <script>
+        // Task 1: Write a for loop that counts from 0 to 10.
+        for (let count = 0; count <= 10; count++) {
+            // Check if the current number is odd or even and display a message.
+            if (count % 2 === 0) {
+                document.write("<p>Count " + count + " is even</p>");
+            } else {
+                document.write("<p>Count " + count + " is odd</p>");
+            }
+        }
+
+        // Task 2: Ask the user for a number between 5 and 20.
+        var myNum;
+        do {
+            myNum = prompt("Enter a number between 5 and 20:");
+        } while (myNum < 5 || myNum > 20);
+
+        // Use Do While loop to display the loop counter until it equals the value of myNum.
+        var loopCounter = 1;
+        do {
+            document.write("<p>Loop Counter: " + loopCounter + "</p>");
+            loopCounter++;
+        } while (loopCounter <= myNum);
+
+        // Task 3: Store subjects in an array.
+        var subjects = ["Accounting", "Algebra", "Programming", "Art", "Data Analytics"];
+
+        // Display the array values in a readable format using forEach().
+        document.write("<p>Subjects:</p>");
+        subjects.forEach(function (subject) {
+            document.write("<p>" + subject + "</p>");
+        });
+
+        // Display the array values separated by commas using one statement.
+        var subjectsString = subjects.join(', ');
+        document.write("<p>Subjects: " + subjectsString + "</p>");
+    </script>
+</body>
+</html>
