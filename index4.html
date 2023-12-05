@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <script>
+        // Function to verify valid service quality
+        function isValidServiceQuality(quality) {
+            const validQualities = ['great', 'ok', 'poor'];
+            return validQualities.includes(quality.toLowerCase());
+        }
+
+        // Function to verify valid service amount
+        function isValidServiceAmount(amount) {
+            return !isNaN(amount) && parseFloat(amount) >= 5.00 && parseFloat(amount) <= 500.00;
+        }
+
+        // Function to calculate tip amount
+        function calculateTip(serviceAmount, serviceQuality) {
+            let tipPercentage;
+
+            switch (serviceQuality.toLowerCase()) {
+                case 'great':
+                    tipPercentage = 0.20;
+                    break;
+                case 'ok':
+                    tipPercentage = 0.15;
+                    break;
+                case 'poor':
+                    tipPercentage = 0.10;
+                    break;
+                default:
+                    // This should not happen due to validation, but handling just in case
+                    return null;
+            }
+
+            const tipAmount = serviceAmount * tipPercentage;
+            return tipAmount;
+        }
+
+        // Function to handle tip calculation and display
+        function calculateAndDisplayTip() {
+            const serviceAmountInput = prompt("Enter the dollar amount of the service:");
+            const serviceQualityInput = prompt("How was the service? (great, ok, poor)");
+
+            if (!isValidServiceAmount(serviceAmountInput) || !isValidServiceQuality(serviceQualityInput)) {
+                alert("Invalid input. Please enter valid values.");
+                return;
+            }
+
+            const serviceAmount = parseFloat(serviceAmountInput);
+            const serviceQuality = serviceQualityInput.toLowerCase();
+
+            const tipAmount = calculateTip(serviceAmount, serviceQuality);
+
+            if (tipAmount !== null) {
+                alert(`Service Amount: $${serviceAmount.toFixed(2)}\nRecommended Tip: $${tipAmount.toFixed(2)}\nService Quality: ${serviceQuality}`);
+            } else {
+                alert("Error calculating tip. Please try again.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Tip Calculator</h1>
+    <button onclick="calculateAndDisplayTip()">Calculate Tip</button>
+</body>
+</html>
