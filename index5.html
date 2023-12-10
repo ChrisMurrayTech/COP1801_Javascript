@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Dogs</title>
+</head>
+<body>
+    <!-- Display area for dog information -->
+    <div id="dogInfo"></div>
+
+    <script>
+        // JavaScript code goes here
+        // Task 1: Create a literal object named myDog
+        let myDog = {
+            name: "Courage",
+            breed: "Beagle",
+            show: "Courage the Cowardly Dog",
+            description: "About an anthropomorphic dog who lives with a married couple of elderly farmers in the 'Middle of Nowhere'.",
+            mySound: "When you hear me, you should be scared.",
+
+            // Display information about the dog
+            displayInfo: function() {
+                // Update the dogInfo div with the information
+                document.getElementById('dogInfo').innerHTML = `Hello, my name is ${this.name}. When I bark, ${this.mySound}. I starred in the TV show ${this.show}. My character was a ${this.breed}. ${this.description}`;
+            }
+        };
+
+        // Call the displayInfo method to show information about myDog
+        myDog.displayInfo();
+
+        // Task 2: Create a constructor for a dog object
+        function Dog(name, breed, show, description, mySound) {
+            this.name = name;
+            this.breed = breed;
+            this.show = show;
+            this.description = description;
+            this.mySound = mySound;
+            this.canTalk = false;
+
+            // Method to display a greeting
+            this.myGreeting = function() {
+                // Update the dogInfo div with the information
+                document.getElementById('dogInfo').innerHTML = `Hello, my name is ${this.name}. When I bark, ${this.mySound}. I starred in the TV show ${this.show}. My character was a ${this.breed}. ${this.description}`;
+            };
+        }
+
+        // Create an instance of the Dog object using the constructor
+        let myDogConst = new Dog("Courage", "Beagle", "Courage the Cowardly Dog", "About an anthropomorphic dog who lives with a married couple of elderly farmers in the 'Middle of Nowhere'.", "When you hear me, you should be scared.");
+
+        // Call the myGreeting method to display a greeting for myDogConst
+        myDogConst.myGreeting();
+    </script>
+</body>
+</html>
